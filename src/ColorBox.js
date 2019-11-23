@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
-import MovieCard from './card-components/MovieCard.js'
-import movieData from './data.js'
+import React, { Component } from "react";
 
-export default class MovieShowcase extends Component {
-
-  generateMovieCards = () => {
-    // map over your movieData array and return the correct 
-    return movieData.map(function (title, IMD_Rating, genres, poster) {
-      return MovieCard(title, IMD_Rating, genres, poster);
-    })
-  }
-
+export default class ColorBox extends Component {
   render() {
+    if (this.props.opacity < 0.2) {
+      return null;
+    }
     return (
-      <div id="movie-showcase">
-        {this.generateMovieCards()}
+      <div className="color-box" style={{ opacity: this.props.opacity }}>
+        <ColorBox opacity={this.props.opacity - 0.1} />
       </div>
-    )
+    );
   }
 }
