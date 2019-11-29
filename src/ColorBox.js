@@ -11,7 +11,7 @@ export default class ColorBox extends Component {
         )
       
     }else{
-      return undefined
+      return null
     }
     
   }
